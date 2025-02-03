@@ -1,0 +1,34 @@
+{
+  "id" : "course1",
+  "assignments" : [
+    {
+      "id" : "a1",
+      "assessments" : [
+        {
+          "id" : "asmt1",
+          "type" : "homework",
+          "pointsPossible" : 100
+        }
+      ]
+    }
+  ]
+}
+
+
+//new json
+
+{
+  "name" : "course1",
+  "assignments" : [
+    {
+      "name" : "a1",
+      "assessments" : [
+        {
+          "name" : "asmt1",
+          "type" : "homework",
+          "pointsPossible" : 100
+        }
+      ]
+    }
+  ]
+}

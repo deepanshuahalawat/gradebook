@@ -1,0 +1,41 @@
+Entities
+	StudentClass
+		id
+		name
+	User
+		id
+		type
+		@FetchType(lazy)
+		List<Course>
+		@ManyToOne
+		StudentClass class;
+		
+	Course
+		id
+		@FetchLazy
+		List<User> roster
+		@FetchLazy
+		List<Assignment> assignments
+	
+	Assignment
+		id
+		course_id
+		List<Assessment> assessments
+		
+	Assessment
+		id
+		type
+		Float pointsPossible
+		
+		
+Result DTO 
+	ScoreDto
+		StudentScoreDto
+			StudentAssessmentScoreDto
+			StudentCourseScoreDto
+		
+		ClassScoreDto
+			ClassCourseScoreDto
+	
+		
+		

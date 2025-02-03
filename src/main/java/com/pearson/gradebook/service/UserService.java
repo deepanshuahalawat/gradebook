@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pearson.gradebook.dto.CourseDto;
 import com.pearson.gradebook.dto.UserDto;
+import com.pearson.gradebook.exception.customexception.UserNotFoundException;
 
 public interface UserService {
 	
@@ -13,5 +14,7 @@ public interface UserService {
 	
 	List<UserDto> allUsers();
 	
-	UserDto getUser(Long userId);
+	UserDto getUser(Long userId) throws UserNotFoundException;
+
+	
 }

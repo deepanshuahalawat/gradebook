@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.pearson.gradebook.controller.UserController;
 import com.pearson.gradebook.dao.AssessmentRepository;
 import com.pearson.gradebook.dao.CourseRepository;
-import com.pearson.gradebook.dao.UserDao;
+import com.pearson.gradebook.dao.UserRepository;
 import com.pearson.gradebook.dto.AssesmentDto;
 import com.pearson.gradebook.dto.ClassCourseScoreDto;
 import com.pearson.gradebook.dto.ClassScoreDto;
@@ -63,7 +63,7 @@ public class ResultServiceImpl implements ResultService{
 	private CustomCourseMapperImpl courseMapperImpl;
 	
 	@Autowired
-	private UserDao userRepository;
+	private UserRepository userRepository;
 	
 	@Autowired
 	private CourseRepository courseRepository;

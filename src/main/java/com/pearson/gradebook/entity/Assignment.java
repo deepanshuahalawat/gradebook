@@ -14,7 +14,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "assignment")
 public class Assignment {
@@ -32,44 +34,5 @@ public class Assignment {
 	List<Assesment> assesments;
 
 	String name;
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public List<Assesment> getAssesments() {
-		return assesments;
-	}
-
-	public void setAssesments(List<Assesment> assesments) {
-		this.assesments = assesments;
-	}
-
-	public Course getCourse() {
-		return course;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return "Assignment [id=" + id + ", assesments=" + assesments + ", name=" + name + "]";
-	}
-	
-	
 	
 }

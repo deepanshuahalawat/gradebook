@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pearson.gradebook.dao.ClassRepository;
-import com.pearson.gradebook.dao.UserDao;
+import com.pearson.gradebook.dao.UserRepository;
 import com.pearson.gradebook.dto.ClassDto;
 import com.pearson.gradebook.dto.UserDto;
 import com.pearson.gradebook.entity.SchoolClass;
@@ -20,7 +20,7 @@ public class ClassServiceImpl implements ClassService{
 	private CustomClassMapperImpl classMapperImpl;
 	
 	@Autowired
-	private UserDao userRepository;
+	private UserRepository userRepository;
 	
 	@Autowired
 	private CustomUserMapperImpl customUserMapperImpl;

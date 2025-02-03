@@ -1,0 +1,44 @@
+APIs
+Mapper interface in spring boot
+create course
+	/api/course
+			/register
+				Post
+				body:course-structure.json
+			/list
+				GET
+				Lists all the courses
+			/enroll
+				PUT
+				enroll the student
+				Body: student json
+			/roster/{course_id}
+				GET roster of a course by id
+			
+	/api/user
+			/register
+				POST add user to system
+			/courses/{user_id}
+				GET list all the courses that user is enrolled in 
+			/list	
+				GET all the list of user
+
+	/api/class
+			/add
+				Add a class
+			/admit
+				add student to class
+	
+				
+	/api/result
+			/save
+			
+			/student/{studentId}
+			
+			/student/{studentId}/assmt/{assmtId}
+			
+			/student/{studentId}/course/{courseId}
+			
+			/class/{classId}
+			
+			/class/{classId}/course/{courseId}

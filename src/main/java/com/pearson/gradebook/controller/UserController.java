@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pearson.gradebook.dto.CourseDto;
 import com.pearson.gradebook.dto.UserDto;
+import com.pearson.gradebook.exception.customexception.UserNotFoundException;
 import com.pearson.gradebook.service.UserService;
 
 
@@ -51,4 +52,12 @@ public class UserController {
 		List<UserDto> users = userService.allUsers();
 		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
 	}
+	
+	@GetMapping("/{userId}")
+	public ResponseEntity<UserDto> getUser(@PathVariable Long userId) throws UserNotFoundException{
+		UserDto users = userService.getUser(userId);
+		return new ResponseEntity<UserDto>(users, HttpStatus.OK);
+	}
+	
+	
 }

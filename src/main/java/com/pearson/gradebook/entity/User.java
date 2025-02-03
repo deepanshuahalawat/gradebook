@@ -15,10 +15,13 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@Data
 @Entity
 @Table(name = "user")
-public class User {
+public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	Long id;
@@ -31,46 +34,5 @@ public class User {
 	@ManyToOne
 	@JoinColumn(name = "student_class",referencedColumnName = "id")
 	SchoolClass studentClass;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
-
-	public SchoolClass getStudentClass() {
-		return studentClass;
-	}
-
-	public void setStudentClass(SchoolClass studentClass) {
-		this.studentClass = studentClass;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", type=" + type + ", studentClass=" + studentClass + "]";
-	}
-	
-	
-	
-	
 
 }

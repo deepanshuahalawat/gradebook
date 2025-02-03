@@ -7,7 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
+@Data
 @Entity
 public class Result {
 
@@ -25,46 +27,7 @@ public class Result {
 	
 	Date date;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public User getStudent() {
-		return student;
-	}
-
-	public void setStudent(User student) {
-		this.student = student;
-	}
-
-	public Assesment getAssesment() {
-		return assesment;
-	}
-
-	public void setAssesment(Assesment assesment) {
-		this.assesment = assesment;
-	}
-
-	public Float getScore() {
-		return score;
-	}
-
-	public void setScore(Float score) {
-		this.score = score;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
+	
 	
 	
 }

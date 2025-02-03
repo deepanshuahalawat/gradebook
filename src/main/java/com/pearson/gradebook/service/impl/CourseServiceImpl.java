@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pearson.gradebook.dao.CourseRepository;
-import com.pearson.gradebook.dao.UserDao;
+import com.pearson.gradebook.dao.UserRepository;
 import com.pearson.gradebook.dto.CourseDto;
 import com.pearson.gradebook.dto.CourseRosterDto;
 import com.pearson.gradebook.dto.UserDto;
@@ -36,7 +36,7 @@ public class CourseServiceImpl implements CourseService {
 	CourseRepository courseRepository;
 	
 	@Autowired
-	UserDao userRepository;
+	UserRepository userRepository;
 
 	@Override
 	public CourseDto register(CourseDto courseDto) {

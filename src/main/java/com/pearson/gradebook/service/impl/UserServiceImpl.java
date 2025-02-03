@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pearson.gradebook.controller.UserController;
-import com.pearson.gradebook.dao.UserDao;
+import com.pearson.gradebook.dao.UserRepository;
 import com.pearson.gradebook.dto.CourseDto;
 import com.pearson.gradebook.dto.UserDto;
 import com.pearson.gradebook.entity.User;
+import com.pearson.gradebook.exception.customexception.UserNotFoundException;
 import com.pearson.gradebook.mapper.UserMapper;
 import com.pearson.gradebook.mapper.impl.CustomUserMapperImpl;
 import com.pearson.gradebook.service.UserService;
@@ -19,13 +20,13 @@ import com.pearson.gradebook.service.UserService;
 @Service
 public class UserServiceImpl implements UserService{
 
-	private UserDao userRepository;
+	private UserRepository userRepository;
 	private CustomUserMapperImpl customUserMapper;
 	
 	private Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
-	public UserServiceImpl(UserDao userDao, CustomUserMapperImpl customUserMapper) {
+	public UserServiceImpl(UserRepository userDao, CustomUserMapperImpl customUserMapper) {
 		this.userRepository = userDao;
 		this.customUserMapper = customUserMapper;
 	}
@@ -40,7 +41,6 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserDto enrolledCourses(Long userId) {
 		User user = userRepository.findById(userId).get();
-		logger.info("user: "+user);
 		return customUserMapper.entityToDto(user);
 	}
 
@@ -53,9 +53,13 @@ public class UserServiceImpl implements UserService{
 		return userDtos;
 	}
 	
-	public UserDto getUser(Long userId) {
-		User user = userRepository.findById(userId).get();
+	public UserDto getUser(Long userId) throws UserNotFoundException{
+		User user = userRepository
+				.findById(userId)
+				.orElseThrow(UserNotFoundException :: new);
 		return customUserMapper.entityToDto(user);
 	}
+
+	
 
 }
